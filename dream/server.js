@@ -16,7 +16,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.post('/dream', async (req, res) => {
+app.get("/dream", async (req, res) => {
     const prompt = req.body.prompt;
 
     const aiResponse = await openai.createImage({
@@ -29,4 +29,4 @@ app.post('/dream', async (req, res) => {
     res.send({ image });
 });
 
-app.listen(2233, () => console.log('make art on http://localhost:2233/dream'));
+app.listen(8080, () => console.log('make art on http://localhost:8080/dream'));
